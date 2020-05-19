@@ -18,9 +18,7 @@ def bubble_sort(arr):
     while swapped:
         if index < last_element: 
             if arr[index] > arr[index + 1]:
-                largerValue = arr[index]
-                arr[index] = arr[index + 1]
-                arr[index + 1] = largerValue
+                arr[index], arr[index+1] = arr[index+1], arr[index]
                 swaps += 1
             index += 1
         else: 
@@ -36,6 +34,11 @@ def bubble_sort(arr):
 # STRETCH: implement the Count Sort function below
 def count_sort(arr, maximum=-1):
     # Your code here
+    if len(arr) == 0:
+        return arr
+    if maximum == -1:
+        maximum = max(arr)
+    buckets = [0 for i in range(maximum+1)]
 
 
     return arr
