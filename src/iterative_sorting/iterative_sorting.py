@@ -23,7 +23,7 @@ def bubble_sort(arr):
             index += 1
         else: 
             last_element -= 1
-            if swaps is 0:
+            if swaps == 0:
                 swapped = False
             else:
                 index = 0
@@ -38,7 +38,16 @@ def count_sort(arr, maximum=-1):
         return arr
     if maximum == -1:
         maximum = max(arr)
-    buckets = [0 for i in range(maximum+1)]
-
+    buckets = [0 for _ in range(maximum+1)]
+    for x in arr:
+        if x < 0:
+            return 'Error, negative numbers not allowed in Count Sort'
+        buckets[x] += 1
+    j = 0
+    for i in range(len(buckets)):
+        while buckets[i] > 0:
+            arr[j] = i
+            j+=1
+            buckets[i]-=1
 
     return arr
